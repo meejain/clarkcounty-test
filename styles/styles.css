@@ -244,6 +244,10 @@ main .section-top p{
   font: 400 48px 'Oswald',sans-serif;
 }
 
+main > div.section > .default-content-wrapper > p {
+  margin: 0;
+}
+
 /*
 @media (width >= 600px) {
   main .section {
