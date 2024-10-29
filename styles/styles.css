@@ -418,7 +418,7 @@ body > main > div.section.newsletter > div h2 {
   margin-bottom: 8px;
 }
 
-body > main > div:nth-child(1) > div > picture > img {
+body > main > div:nth-child(1) > div picture > img {
   opacity: 0.75;
   transform-origin: bottom center;
   transform: scale(1.18);
