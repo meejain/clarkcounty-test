@@ -1,5 +1,8 @@
 import { getMetadata, toClassName } from '../../scripts/aem.js';
 import { loadFragment } from '../fragment/fragment.js';
+import {
+  div, img, span, h2
+} from '../../scripts/dom-helpers.js';
 
 // media query match that indicates mobile/tablet width
 const isDesktop = window.matchMedia('(min-width: 900px)');
@@ -10,19 +13,16 @@ function handleNavTools(navWrapper) {
     const searchTool = tools[0];
     const languageTool = tools[1];
     const nav = document.querySelector('.nav-wrapper nav');
-    const searchDiv = document.createElement('div');
-    searchDiv.classList.add('nav-search');
-    const searchIcon = document.createElement('img');
+    const searchDiv = div({ class: 'nav-search' });
+    const searchIcon = img({ class: 'nav-search-icon' });
     searchIcon.src = '/icons/search.svg';
     searchIcon.alt = 'Search Icon';
-    searchIcon.classList.add('nav-search-icon');
     searchDiv.appendChild(searchIcon);
-    const searchText = document.createElement('span');
+    const searchText = span();
     searchText.textContent = searchTool.innerText;
     searchDiv.appendChild(searchText);
-    const languageDiv = document.createElement('div');
-    languageDiv.classList.add('nav-language');
-    const languageText = document.createElement('span');
+    const languageDiv = div({ class: 'nav-language' });
+    const languageText = span();
     languageText.textContent = languageTool.innerText;
     const picture = languageTool.querySelector('picture');
     picture.classList.add('nav-language-icon');
@@ -117,19 +117,13 @@ function toggleMenu(nav, navSections, forceExpanded = null) {
 }
 
 function decorateNavItem(parent, navSectionSearchItem) {
-  const menuUl = document.createElement('div');
-  menuUl.className = 'menuUL';
-  const navIn = document.createElement('div');
-  navIn.className = 'nav-in';
-  const navContent = document.createElement('div');
-  navContent.className = 'nav-content';
-  const navContentIn = document.createElement('div');
-  navContentIn.className = 'nav-content-in';
-  const navPageTitle = document.createElement('h2');
-  navPageTitle.className = 'nav-page-title';
+  const menuUl = div({ class: 'menuUL' });
+  const navIn = div({ class: 'nav-in' });
+  const navContent = div({ class: 'nav-content' });
+  const navContentIn = div({ class: 'nav-content-in' });
+  const navPageTitle = h2({ class: 'nav-page-title' });
   navPageTitle.textContent = parent.querySelector('strong').textContent;
-  const closeSpan = document.createElement('span');
-  closeSpan.className = 'nav-close';
+  const closeSpan = span({ class: 'nav-close' });
   closeSpan.innerText = 'close';
   closeSpan.addEventListener('click', () => {
     parent.setAttribute('aria-expanded', 'false');
@@ -141,12 +135,10 @@ function decorateNavItem(parent, navSectionSearchItem) {
   menuUl.append(navIn);
   parent.append(menuUl);
 
-  const navInMenuWrap = document.createElement('div');
-  navInMenuWrap.className = 'nav-in-menu-wrap';
+  const navInMenuWrap = div({ class: 'nav-in-menu-wrap' });
   navIn.append(navInMenuWrap);
 
-  const tablist = document.createElement('div');
-  tablist.className = 'tabs-list';
+  const tablist = div({ class: 'tabs-list' });
   tablist.setAttribute('role', 'tablist');
 
   navInMenuWrap.append(tablist);
