@@ -74,10 +74,6 @@ body.appear {
   display: block;
 }
 
-header {
-  height: var(--nav-height);
-}
-
 h1, h2, h3,
 h4, h5, h6 {
   font-family: var(--heading-font-family);
@@ -193,16 +189,6 @@ main .section {
   padding: 64px 16px;
 }
 */
-header {
-  background: transparent;
-  transform: translateY(0px);
-  position: fixed;
-  left: 0;
-  right: 0;
-  z-index: 999;
-  border-bottom: 1px solid #fff;
-  transition: all .3s;
-}
 
 .hero {
   position: relative;
