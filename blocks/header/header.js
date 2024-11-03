@@ -230,6 +230,7 @@ export default async function decorate(block) {
     const navSectionSearchItem = navSections.children[0]?.children[1];
     navSections.querySelectorAll(':scope .default-content-wrapper > ul > li').forEach((navSection) => {
       if (navSection.querySelector('ul')) navSection.classList.add('nav-drop');
+      console.log(navSection);
       decorateNavItem(navSection, navSectionSearchItem);
       navSection.addEventListener('mouseover', () => {
         if (isDesktop.matches) {
